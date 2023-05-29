@@ -1,0 +1,262 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้านอาหารดังในกรุงเทพ</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+    
+    <!-- W3 CSS template -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <style>
+    #mapid {
+    height: 800px;
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="w3-row">
+        <div id="mapid" class="w3-half"></div>
+        <div id="content" class="w3-half">
+        <table class="w3-table w3-striped">
+        <tr>
+        <th>ร้านอาหาร</th>
+        <th>ประเภท</th>
+        <th>รีวิว</th>
+        </tr>
+        <tr>
+        <td>น้ำตก A</td>
+        <td>ธรรมชาติ</td>
+        <td>ธรรมชาติ</td>
+        </tr>
+        </table>
+        </div>
+        </div>
+<script>
+    var map = L.map("mapid").setView([13.745597730711909, 100.51800073984309], 11);
+ 
+ var osm = L.tileLayer(
+ "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+ ).addTo(map);
+ var gsat = L.tileLayer(
+ "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"
+ ).addTo(map);
+ var OpenStreetMap_HOT = L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png").addTo(map);
+ 
+ var baseMaps = {
+ OSM: osm,
+GoogleSat: gsat,
+StreetMap_HOT: OpenStreetMap_HOT,
+ };
+ 
+ var nonthaburi = {
+    
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ร้านอาหาร": "mama",
+        "ประเภท": "Restaurant",
+        "รีวิว": 7
+      },
+      "geometry": {
+        "coordinates": [
+          100.50187644268561,
+          13.743108387147984
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ร้านอาหาร": "แม่ช้อย ดอยหลวง",
+        "ประเภท": "Restaurant",
+        "รีวิว": 8
+      },
+      "geometry": {
+        "coordinates": [
+          100.4952584256738,
+          13.858011478706729
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ร้านอาหาร": "ภากร กึ่งกลาง",
+        "ประเภท": "Restaurant",
+        "รีวิว": 9
+      },
+      "geometry": {
+        "coordinates": [
+          100.49949971696753,
+          13.874911101035579
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ร้านอาหาร": "ปิ่นโตนามีตาล",
+        "ประเภท": "Restaurant",
+        "รีวิว": 9
+      },
+      "geometry": {
+        "coordinates": [
+          100.544588914369,
+          14.020514646299262
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ร้านอาหาร": "บ้านเหนือน้ำ",
+        "ประเภท": "Restaurant",
+        "รีวิว": 8
+      },
+      "geometry": {
+        "coordinates": [
+          100.53661665259841,
+          14.024935689262449
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ร้านอาหาร": "ก๋วยเตี๋ยวเรือผู้ใหญ่เพ็ญ",
+        "ประเภท": "Restaurant",
+        "รีวิว": 8
+      },
+      "geometry": {
+        "coordinates": [
+          100.70872167811291,
+          14.008566495111694
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ร้านอาหาร": "About Stories",
+        "ประเภท": "Restaurant",
+        "รีวิว": 7
+      },
+      "geometry": {
+        "coordinates": [
+          100.63977789287281,
+          13.950797082516672
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ร้านอาหาร": "อิ่มจัง หมูกะทะ",
+        "ประเภท": "Restaurant",
+        "รีวิว": 6
+      },
+      "geometry": {
+        "coordinates": [
+          100.58559757063915,
+          13.91562853209426
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ร้านอาหาร": "โตเป็ดย่าง",
+        "ประเภท": "Restaurant",
+        "รีวิว": 7
+      },
+      "geometry": {
+        "coordinates": [
+          100.53811797595142,
+          13.908975215486365
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ร้านอาหาร": "ขาหมูเมืองทอง",
+        "ประเภท": "Restaurant",
+        "รีวิว": 8
+      },
+      "geometry": {
+        "coordinates": [
+          100.53799285388419,
+          13.90170737966757
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
+  // interaction by mouseover
+  var tourLayer = L.geoJSON(nonthaburi, {
+ pointToLayer: function (feature, latlng) {
+ return L.marker(latlng).bindPopup(feature.properties.ร้านอาหาร);
+ },
+ onEachFeature: function (feature, layer) {
+ layer.on("mouseover", function () {
+ document
+ .getElementById(feature.properties.ร้านอาหาร)
+ .classList.add("w3-red");
+ });
+ 
+ layer.on("mouseout", function () {
+ document
+ .getElementById(feature.properties.ร้านอาหาร)
+ .classList.remove("w3-red");
+ });
+ },
+ }).addTo(map);
+ 
+ var cont = "";
+ cont += "<table class='w3-table w3-striped'>";
+ cont += "<tr>";
+ cont += "<th>ร้านอาหาร</th>";
+ cont += "<th>ประเภท</th>";
+ cont += "<th>รีวิว</th>";
+ cont += "</tr>";
+ for (let i in nonthaburi.features) {
+ cont += "<tr id=" + nonthaburi.features[i].properties.ร้านอาหาร+ ">";
+ cont += "<td>" + nonthaburi.features[i].properties.ร้านอาหาร + "</td>";
+ cont += "<td>" + nonthaburi.features[i].properties.ประเภท + "</td>";
+ cont += "<td>" + nonthaburi.features[i].properties.รีวิว + "</td>";
+ cont += "</tr>";
+ }
+ cont += "</table>";
+ console.log(cont);
+ document.getElementById("content").innerHTML = cont;
+
+ var overlays = {Travel_nonthaburi: tourLayer};
+ //add leyer control
+ L.control.layers(baseMaps, overlays).addTo(map);
+</script>
+
+
+
+
+</body>
+</html>
